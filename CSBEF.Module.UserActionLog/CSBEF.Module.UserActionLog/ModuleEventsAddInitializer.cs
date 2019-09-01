@@ -29,13 +29,7 @@ namespace CSBEF.Module.UserActionLog
 
             #endregion Base Actions
 
-            #region Service Actions
-
-            
-
-            #endregion Service Actions
-
-            #endregion BranchService
+            #endregion ActionLogService
         }
     }
 }

@@ -23,7 +23,7 @@ namespace CSBEF.Module.UserActionLog.Services
            IActionLogRepository repository,
            IEventService eventService
 
-           // Other Repository Dependencies
+        // Other Repository Dependencies
         ) : base(
            hostingEnvironment,
            configuration,
