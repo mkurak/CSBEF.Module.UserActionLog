@@ -4,6 +4,9 @@ This is an official module created for CSBEF. The module keeps track of the tran
 # Current Version
 Version: 1.0.2 ([latest release](https://github.com/mkurak/CSBEF.Module.UserActionLog/releases/tag/1.0.2))
 
+# Nuget
+[CSBEF.Module.UserActionLog](https://www.nuget.org/packages/CSBEF.Module.UserActionLog/)
+
 # Status
 Completed, there is no planned development.
 
