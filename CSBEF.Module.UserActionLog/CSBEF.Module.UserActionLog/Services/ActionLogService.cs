@@ -16,7 +16,7 @@ namespace CSBEF.Module.UserActionLog.Services
         #region ctor
 
         public ActionLogService(
-           IHostingEnvironment hostingEnvironment,
+           IWebHostEnvironment hostingEnvironment,
            IConfiguration configuration,
            ILogger<ILog> logger,
            IMapper mapper,
