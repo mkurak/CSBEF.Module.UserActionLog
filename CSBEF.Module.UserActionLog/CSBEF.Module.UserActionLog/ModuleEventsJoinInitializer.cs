@@ -34,18 +34,11 @@ namespace CSBEF.Module.UserActionLog
             {
                 foreach (var e in allEvents)
                 {
-                    if (
-                        e.EventInfo.EventType == EventTypeEnum.after
-                        && (
-                            e.EventInfo.ActionName != "FirstAsync"
-                            && e.EventInfo.ActionName != "FirstOrDefaultAsync"
-                            && e.EventInfo.ActionName != "AnyAsync"
-                            && e.EventInfo.ActionName != "ListAsync"
-                        )
-                    )
-                    {
-                        e.Event += AddUserLogHandler;
-                    }
+                    if(e.EventInfo.EventType == EventTypeEnum.after)
+                        e.Event += AddAfterUserLogHandler;
+
+                    if (e.EventInfo.EventType == EventTypeEnum.before)
+                        e.Event += AddBeforeUserLogHandler;
                 }
             }
         }
@@ -65,7 +58,7 @@ namespace CSBEF.Module.UserActionLog
             return rtn;
         }
 
-        private async Task<dynamic> AddUserLogHandler(dynamic data, IEventInfo eventInfo)
+        private async Task<dynamic> AddAfterUserLogHandler(dynamic data, IEventInfo eventInfo)
         {
             var userActionLogRepository = _serviceProvicer.GetService<IActionLogRepository>();
             var accessor = _serviceProvicer.GetService<IHttpContextAccessor>();
@@ -74,6 +67,7 @@ namespace CSBEF.Module.UserActionLog
                 Ip = accessor.HttpContext.Connection.RemoteIpAddress.ToString(),
                 UserId = data.ActionParameter.UserId,
                 TokenId = data.ActionParameter.TokenId,
+                EventName = eventInfo.EventName,
                 Module = eventInfo.ModuleName,
                 Action = eventInfo.ModuleName + "." + eventInfo.ServiceName + "." + eventInfo.ActionName,
                 ActionTime = DateTime.Now,
@@ -87,6 +81,31 @@ namespace CSBEF.Module.UserActionLog
             await userActionLogRepository.SaveAsync();
 
             return data.DataToBeSent;
+        }
+
+        private async Task<dynamic> AddBeforeUserLogHandler(dynamic data, IEventInfo eventInfo)
+        {
+            var userActionLogRepository = _serviceProvicer.GetService<IActionLogRepository>();
+            var accessor = _serviceProvicer.GetService<IHttpContextAccessor>();
+            var addLogModel = new ActionLog
+            {
+                Ip = accessor.HttpContext.Connection.RemoteIpAddress.ToString(),
+                UserId = data.UserId,
+                TokenId = data.TokenId,
+                EventName = eventInfo.EventName,
+                Module = eventInfo.ModuleName,
+                Action = eventInfo.ModuleName + "." + eventInfo.ServiceName + "." + eventInfo.ActionName,
+                ActionTime = DateTime.Now,
+                Status = true,
+                AddingDate = DateTime.Now,
+                UpdatingDate = DateTime.Now,
+                AddingUserId = data.UserId,
+                UpdatingUserId = data.UserId
+            };
+            userActionLogRepository.Add(addLogModel);
+            await userActionLogRepository.SaveAsync();
+
+            return new ReturnModel<bool>(_logger).SendResult(true);
         }
     }
 }

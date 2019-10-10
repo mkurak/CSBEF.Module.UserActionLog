@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>Mesut Kurak</Authors>
     <Company>Code Scientific</Company>
     <Description>This module records all operations of all modules within the CSBEF API application.</Description>
@@ -14,10 +14,9 @@
     <RepositoryUrl>https://github.com/mkurak/CSBEF.Module.UserActionLog</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>CSBEF User Action Log Module (offical)</PackageTags>
-    <PackageReleaseNotes>
-      - Core 3 updated
-      - CSBEF.Core 2.0.1 updated
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>- Core 3 updated
+- CSBEF.Core 2.0.1 updated
+- Expanded record keeping area</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
