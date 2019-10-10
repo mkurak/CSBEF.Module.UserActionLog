@@ -1,5 +1,6 @@
 ﻿using CSBEF.Core.Enums;
 using CSBEF.Core.Interfaces;
+using System;
 
 namespace CSBEF.Module.UserActionLog
 {
@@ -11,6 +12,9 @@ namespace CSBEF.Module.UserActionLog
 
         public void Start(IEventService eventService)
         {
+            if (eventService == null)
+                throw new ArgumentNullException(nameof(eventService));
+
             #region ActionLogService
 
             #region Base Actions

@@ -43,6 +43,9 @@ namespace CSBEF.Module.UserActionLog.Controllers
         [HttpGet]
         public async Task<ActionResult<IReturnModel<IList<ActionLogDTO>>>> List([FromQuery]ActionFilterModel filter)
         {
+            if (filter == null)
+                throw new ArgumentNullException(nameof(filter));
+
             #region Declares
 
             IReturnModel<IList<ActionLogDTO>> rtn = new ReturnModel<IList<ActionLogDTO>>(_logger);
@@ -64,7 +67,7 @@ namespace CSBEF.Module.UserActionLog.Controllers
             try
             {
                 var userId = Tools.GetTokenNameClaim(HttpContext);
-                IReturnModel<IList<ActionLogDTO>> serviceAction = await _service.ListAsync(filter);
+                IReturnModel<IList<ActionLogDTO>> serviceAction = await _service.ListAsync(filter).ConfigureAwait(false);
                 if (serviceAction.Error.Status)
                     rtn.Error = serviceAction.Error;
                 else
