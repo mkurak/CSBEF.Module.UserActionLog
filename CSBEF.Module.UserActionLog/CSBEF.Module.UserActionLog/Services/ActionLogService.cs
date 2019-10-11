@@ -21,8 +21,8 @@ namespace CSBEF.Module.UserActionLog.Services
     {
         #region Dependencies
 
-        private IHttpContextAccessor _httpContextAccessor;
-        private IActionLogRepository _actionLogRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IActionLogRepository _actionLogRepository;
 
         #endregion
 

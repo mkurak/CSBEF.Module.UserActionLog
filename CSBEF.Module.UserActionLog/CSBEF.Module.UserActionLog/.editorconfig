@@ -1,4 +1,4 @@
 ﻿[*.cs]
 
-# CA1031: Do not catch general exception types
 dotnet_diagnostic.CA1031.severity = none
+dotnet_code_quality.ca1716.api_surface = none

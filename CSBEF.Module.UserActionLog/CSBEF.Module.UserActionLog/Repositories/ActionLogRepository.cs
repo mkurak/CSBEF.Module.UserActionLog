@@ -8,7 +8,7 @@ namespace CSBEF.Module.UserActionLog.Repositories
 {
     public class ActionLogRepository : RepositoryBase<ActionLog>, IActionLogRepository
     {
-        public ActionLogRepository(ModularDbContext context, IMapper mapper) : base(context, mapper)
+        public ActionLogRepository(ModularDbContext context) : base(context)
         {
         }
     }
