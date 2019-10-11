@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Threading.Tasks;
 
 namespace CSBEF.Module.UserActionLog.Services
 {
@@ -58,7 +57,7 @@ namespace CSBEF.Module.UserActionLog.Services
 
         #region Public Actions
 
-        public async Task<IReturnModel<dynamic>> SaveLog(IEventInfo eventInfo, dynamic dataToBeSent)
+        public IReturnModel<dynamic> SaveLog(IEventInfo eventInfo, dynamic dataToBeSent)
         {
             if (eventInfo == null)
                 throw new ArgumentNullException(nameof(eventInfo));
@@ -97,7 +96,7 @@ namespace CSBEF.Module.UserActionLog.Services
                     UpdatingUserId = userId
                 };
                 _actionLogRepository.Add(addLogModel);
-                await _actionLogRepository.SaveAsync().ConfigureAwait(false);
+                _actionLogRepository.Save();
 
                 rtn.Result = dataToBeSent;
 

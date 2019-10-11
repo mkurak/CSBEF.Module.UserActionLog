@@ -4,14 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSBEF.Module.UserActionLog
 {
     public class ModuleEventsJoinInitializer : IModuleEventsJoinInitializer
     {
-        private IServiceProvider _serviceProvider;
-        private ILogger<ILog> _logger;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly ILogger<ILog> _logger;
 
         public ModuleEventsJoinInitializer(IServiceProvider serviceProvider, ILogger<ILog> logger)
         {
@@ -34,10 +33,10 @@ namespace CSBEF.Module.UserActionLog
             }
         }
 
-        private async Task<dynamic> AddActionLog(dynamic data, IEventInfo eventInfo)
+        private dynamic AddActionLog(dynamic data, IEventInfo eventInfo)
         {
             var actitonLogService = _serviceProvider.GetService<IActionLogService>();
-            await actitonLogService.SaveLog(eventInfo, data);
+            actitonLogService.SaveLog(eventInfo, data);
 
             return null;
         }

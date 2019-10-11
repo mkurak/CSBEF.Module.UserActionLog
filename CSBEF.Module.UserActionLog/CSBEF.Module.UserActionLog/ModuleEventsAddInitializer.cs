@@ -19,17 +19,17 @@ namespace CSBEF.Module.UserActionLog
 
             #region Base Actions
 
-            eventService.AddEvent("ActionLogService.FirstAsync.Before", "UserActionLog", "ActionLogService", "FirstAsync", EventTypeEnum.before);
-            eventService.AddEvent("ActionLogService.FirstOrDefaultAsync.Before", "UserActionLog", "ActionLogService", "FirstOrDefaultAsync", EventTypeEnum.before);
-            eventService.AddEvent("ActionLogService.AnyAsync.Before", "UserActionLog", "ActionLogService", "AnyAsync", EventTypeEnum.before);
-            eventService.AddEvent("ActionLogService.ListAsync.Before", "UserActionLog", "ActionLogService", "ListAsync", EventTypeEnum.before);
-            eventService.AddEvent("ActionLogService.CountAsync.Before", "UserActionLog", "ActionLogService", "CountAsync", EventTypeEnum.before);
+            eventService.AddEvent("ActionLogService.First.Before", "UserActionLog", "ActionLogService", "First", EventTypeEnum.before);
+            eventService.AddEvent("ActionLogService.FirstOrDefault.Before", "UserActionLog", "ActionLogService", "FirstOrDefault", EventTypeEnum.before);
+            eventService.AddEvent("ActionLogService.Any.Before", "UserActionLog", "ActionLogService", "Any", EventTypeEnum.before);
+            eventService.AddEvent("ActionLogService.List.Before", "UserActionLog", "ActionLogService", "List", EventTypeEnum.before);
+            eventService.AddEvent("ActionLogService.Count.Before", "UserActionLog", "ActionLogService", "Count", EventTypeEnum.before);
 
-            eventService.AddEvent("ActionLogService.FirstAsync.After", "UserActionLog", "ActionLogService", "FirstAsync", EventTypeEnum.after);
-            eventService.AddEvent("ActionLogService.FirstOrDefaultAsync.After", "UserActionLog", "ActionLogService", "FirstOrDefaultAsync", EventTypeEnum.after);
-            eventService.AddEvent("ActionLogService.AnyAsync.After", "UserActionLog", "ActionLogService", "AnyAsync", EventTypeEnum.after);
-            eventService.AddEvent("ActionLogService.ListAsync.After", "UserActionLog", "ActionLogService", "ListAsync", EventTypeEnum.after);
-            eventService.AddEvent("ActionLogService.CountAsync.After", "UserActionLog", "ActionLogService", "CountAsync", EventTypeEnum.after);
+            eventService.AddEvent("ActionLogService.First.After", "UserActionLog", "ActionLogService", "First", EventTypeEnum.after);
+            eventService.AddEvent("ActionLogService.FirstOrDefault.After", "UserActionLog", "ActionLogService", "FirstOrDefault", EventTypeEnum.after);
+            eventService.AddEvent("ActionLogService.Any.After", "UserActionLog", "ActionLogService", "Any", EventTypeEnum.after);
+            eventService.AddEvent("ActionLogService.List.After", "UserActionLog", "ActionLogService", "List", EventTypeEnum.after);
+            eventService.AddEvent("ActionLogService.Count.After", "UserActionLog", "ActionLogService", "Count", EventTypeEnum.after);
 
             #endregion Base Actions
 

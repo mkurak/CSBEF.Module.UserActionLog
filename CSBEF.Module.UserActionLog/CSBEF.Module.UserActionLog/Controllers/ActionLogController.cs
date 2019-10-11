@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CSBEF.Module.UserActionLog.Controllers
 {
@@ -41,7 +40,7 @@ namespace CSBEF.Module.UserActionLog.Controllers
         [Authorize]
         [Route("api/UserActionLog/ActionLog/List")]
         [HttpGet]
-        public async Task<ActionResult<IReturnModel<IList<ActionLogDTO>>>> List([FromQuery]ActionFilterModel filter)
+        public ActionResult<IReturnModel<IList<ActionLogDTO>>> List([FromQuery]ActionFilterModel filter)
         {
             if (filter == null)
                 throw new ArgumentNullException(nameof(filter));
@@ -67,7 +66,7 @@ namespace CSBEF.Module.UserActionLog.Controllers
             try
             {
                 var userId = Tools.GetTokenNameClaim(HttpContext);
-                IReturnModel<IList<ActionLogDTO>> serviceAction = await _service.ListAsync(filter).ConfigureAwait(false);
+                IReturnModel<IList<ActionLogDTO>> serviceAction = _service.List(filter);
                 if (serviceAction.Error.Status)
                     rtn.Error = serviceAction.Error;
                 else
