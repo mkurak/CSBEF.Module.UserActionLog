@@ -34,6 +34,7 @@ namespace CSBEF.Module.UserActionLog.Services
            IMapper mapper,
            IActionLogRepository repository,
            IEventService eventService,
+           IHubSyncDataService hubSyncDataService,
 
             // Other Dependencies
             IHttpContextAccessor httpContextAccessor,
@@ -45,6 +46,7 @@ namespace CSBEF.Module.UserActionLog.Services
            mapper,
            repository,
            eventService,
+           hubSyncDataService,
            "UserActionLog",
            "ActionLogService"
         )

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using CSBEF.Core.Abstracts;
+﻿using CSBEF.Core.Abstracts;
 using CSBEF.Core.Concretes;
 using CSBEF.Module.UserActionLog.Interfaces.Repository;
 using CSBEF.Module.UserActionLog.Poco;
