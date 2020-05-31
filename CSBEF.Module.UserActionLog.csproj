@@ -5,7 +5,7 @@
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.3.1</Version>
+    <Version>1.3.2</Version>
     <Authors>Mesut Kurak</Authors>
     <Company>Code Scientific</Company>
     <Description>This module records all operations of all modules within the CSBEF API application.</Description>
@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/mkurak/CSBEF.Module.UserActionLog</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>CSBEF User Action Log Module (offical)</PackageTags>
-    <PackageReleaseNotes>- CSBEF.Core 3.1.3 updated</PackageReleaseNotes>
+    <PackageReleaseNotes>- CSBEF.Core 3.1.4 updated</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSBEF.Core" Version="3.1.3" />
+    <PackageReference Include="CSBEF.Core" Version="3.1.4" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

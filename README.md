@@ -4,10 +4,10 @@
 This is an official module created for CSBEF. The module keeps track of the transactions performed in all modules within the API. In order to do this work, the module, which is included in all events, keeps the records in its own database table.
 
 # Current Version
-Version: 1.3.1 ([latest release](https://github.com/mkurak/CSBEF.Module.UserActionLog/releases/tag/1.3.1))
+Version: 1.3.2 ([latest release](https://github.com/mkurak/CSBEF.Module.UserActionLog/releases/tag/1.3.2))
 
 # Version Info
-- CSBEF.Core 3.1.3 updated
+- CSBEF.Core 3.1.4 updated
 
 # Nuget
 [CSBEF.Module.UserActionLog](https://www.nuget.org/packages/CSBEF.Module.UserActionLog/)
